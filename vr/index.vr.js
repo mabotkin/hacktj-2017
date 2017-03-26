@@ -9,12 +9,12 @@ import {
   View,
 } from 'react-vr';
 
-function shuffle(array) 
+function shuffle(array)
 {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
-  while (0 !== currentIndex) 
+  while (0 !== currentIndex)
 	{
 
     // Pick a remaining element...
@@ -48,7 +48,7 @@ export default class vr extends React.Component {
          justifyContent: 'space-between',
          width: 2,
          alignItems: 'stretch',
-         transform: [{translate: [-4, 1, -10.5]}],
+         transform: [{translate: [-5, 1, -10.5]}],
        }}>
        <Image source={asset(names[0])}
       style={{width: 4, height: 4}} />
