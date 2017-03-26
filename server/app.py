@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 
 import os
 import matlab_interface
+import shutil
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -43,6 +44,8 @@ def upload_file():
 
 	# perform the stuff
 	outfile = matlab_interface.do_the_thing(filepath)
+	shutil.copyfile(outfile, os.path.join(
+		os.path.dirname(matlab_interface.dir_path), 'vr', 'static_assets', 'out.png'))
 	return send_file(outfile)
 
 if __name__ == '__main__':

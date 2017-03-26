@@ -24,7 +24,7 @@ export default class vr extends React.Component {
          alignItems: 'stretch',
          transform: [{translate: [-1, 1, -7]}],
        }}>
-       <Image source={asset('sample.png')}
+       <Image source={asset('out.png')}
       style={{width: 3, height: 3}} />
        </View>
       </View>
