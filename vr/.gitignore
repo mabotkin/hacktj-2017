@@ -4,3 +4,6 @@
 *.js.meta
 node_modules/
 build/
+static_assets/original.png
+static_assets/out.png
+static_assets/blur.png
