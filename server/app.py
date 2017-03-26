@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, render_template, redirect, url_for, send_file
+from flask import Flask, request, render_template, redirect, url_for, send_file, redirect
 from werkzeug.utils import secure_filename
 
 import os
@@ -21,7 +21,7 @@ def home():
 
 @app.route('/vr', methods=['GET'])
 def vr():
-	return render_template('vr.html')
+	return render_template('vr.htmli')
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -46,7 +46,8 @@ def upload_file():
 	outfile = matlab_interface.do_the_thing(filepath)
 	shutil.copyfile(outfile, os.path.join(
 		os.path.dirname(matlab_interface.dir_path), 'vr', 'static_assets', 'out.png'))
-	return send_file(outfile)
+	#return send_file(outfile)
+	return redirect("http://localhost:8081/vr/") # disclaimer: this is larrys fault
 
 if __name__ == '__main__':
 	app.run(port=os.getenv('PORT', 5000), host='0.0.0.0', debug=True)
