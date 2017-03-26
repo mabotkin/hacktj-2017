@@ -44,8 +44,12 @@ def upload_file():
 
 	# perform the stuff
 	outfile = matlab_interface.do_the_thing(filepath)
-	shutil.copyfile(outfile, os.path.join(
-		os.path.dirname(matlab_interface.dir_path), 'vr', 'static_assets', 'out.png'))
+
+	# copy to vr folder
+	vr_assets_dir = os.path.join(os.path.dirname(matlab_interface.dir_path),
+		'vr', 'static_assets')
+	shutil.copyfile(filepath, os.path.join(vr_assets_dir, 'original.png'))
+	shutil.copyfile(outfile, os.path.join(vr_assets_dir, 'out.png'))
 	#return send_file(outfile)
 	return redirect("http://localhost:8081/vr/") # disclaimer: this is larrys fault
 

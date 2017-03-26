@@ -22,10 +22,12 @@ export default class vr extends React.Component {
          justifyContent: 'space-between',
          width: 2,
          alignItems: 'stretch',
-         transform: [{translate: [-1, 1, -7]}],
+         transform: [{translate: [-4, 1, -10.5]}],
        }}>
+       <Image source={asset('original.png')}
+      style={{width: 4, height: 4}} />
        <Image source={asset('out.png')}
-      style={{width: 3, height: 3}} />
+      style={{width: 4, height: 4}} />
        </View>
       </View>
     );
