@@ -29,15 +29,7 @@ def allowed_file(filename):
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
 	if request.method != 'POST':
-	    return '''
-<!doctype html>
-<title>Upload new File</title>
-<h1>Upload new File</h1>
-<form method=post enctype=multipart/form-data>
-  <p><input type=file name=file>
-	 <input type=submit value=Upload>
-</form>
-'''
+	    return render_template('upload.html')
 
 	file = request.files.get('file')
 	if not file:

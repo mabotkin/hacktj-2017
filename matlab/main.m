@@ -16,7 +16,7 @@ end
 
 SPEEDY  = true; %Faster or Less Memory to solve?
 LAMBDA  = 0.08; %Constraint to enhance the brightness of the display
-GAMMA   = 8.1;  %Calibrated for iPod touch4/iPhone4
+GAMMA   = 2.2;  %Calibrated for iPod touch4/iPhone4
 
 %TODO:
 % KNOWN BUG: shifted prefiltered light field image, due to the ExtraPixel
