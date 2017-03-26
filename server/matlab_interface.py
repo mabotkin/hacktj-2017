@@ -30,7 +30,7 @@ def do_the_blur(imgfile):
 	imgfile = os.path.realpath(imgfile)
 
 	os.chdir(matlab_dir)
-	outfile = eng.gaussianBlur(imgfile, 1.0)
+	outfile = eng.gaussianBlur(imgfile, 2.0)
 	outfile = os.path.realpath(outfile)
 	os.chdir(original_dir)
 
