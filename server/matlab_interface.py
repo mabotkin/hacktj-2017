@@ -7,7 +7,7 @@ matlab_dir = os.path.join(os.path.dirname(dir_path), 'matlab')
 
 print('Loading Matlab engine... please wait.')
 os.chdir(matlab_dir)
-os.makedirs('uploads/precompute', exist_ok=True)
+os.makedirs('output/precompute', exist_ok=True)
 
 import matlab.engine
 eng = matlab.engine.start_matlab()
@@ -24,4 +24,14 @@ def do_the_thing(imgfile):
 	os.chdir(original_dir)
 
 	#print('outfile:', outfile)
+	return outfile
+
+def do_the_blur(imgfile):
+	imgfile = os.path.realpath(imgfile)
+
+	os.chdir(matlab_dir)
+	outfile = eng.gaussianBlur(imgfile, 1.0)
+	outfile = os.path.realpath(outfile)
+	os.chdir(original_dir)
+
 	return outfile
