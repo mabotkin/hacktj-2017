@@ -9,13 +9,31 @@ import {
   View,
 } from 'react-vr';
 
-var RANDOM = true;
+function shuffle(array) 
+{
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-var swap = Math.random()<0.5; // i hate this language
-if(!RANDOM)
-	swap = true;
-var name1 = swap?"original.png":"out.png";
-var name2 = swap?"out.png":"original.png";
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) 
+	{
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+	}
+
+  return array;
+}
+
+var RANDOM = false;
+var names = ["original.png","blur.png","out.png"];
+if(RANDOM)
+	names = shuffle(names);
 
 export default class vr extends React.Component {
   render() {
@@ -32,9 +50,11 @@ export default class vr extends React.Component {
          alignItems: 'stretch',
          transform: [{translate: [-4, 1, -10.5]}],
        }}>
-       <Image source={asset(name1)}
+       <Image source={asset(names[0])}
       style={{width: 4, height: 4}} />
-       <Image source={asset(name2)}
+       <Image source={asset(names[1])}
+      style={{width: 4, height: 4}} />
+       <Image source={asset(names[2])}
       style={{width: 4, height: 4}} />
        </View>
       </View>
